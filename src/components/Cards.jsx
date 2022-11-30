@@ -1,9 +1,11 @@
 import Card from './Card';
+import styles from "./Cards.module.css"
 
 export default function Cards(props) {
    const { characters } = props;
-   return <div>
-      {characters.map(character=> 
+   return <div className={styles.divContain}>
+      {
+      characters.map(character=> 
       <Card 
          name={character.name} 
          species={character.species}
@@ -11,6 +13,7 @@ export default function Cards(props) {
          image={character.image}
          key={character.name}
          onClose={()=> window.alert('Emulamos que se cierra la card')}
-      />)}
+      />)
+      }
    </div>;
 }

@@ -1,0 +1,54 @@
+.divContainer{
+    width: auto;
+    -webkit-box-shadow: 9px 10px 93px 16px rgba(0,0,0,0.75);
+    -moz-box-shadow: 9px 10px 93px 16px rgba(0,0,0,0.75);
+    box-shadow: 9px 10px 93px 16px rgba(3, 168, 36, 0.85);
+    border: 2px solid rgb(0, 227, 46);
+    /* background: rgb(2, 215, 45); */
+    background-image: url(../assets/HD-wallpaper-portal-morty-rick.jpg);
+    background-size: 100% 100%;
+    margin: 1%;
+    border-radius: 2%;
+    border-bottom-left-radius: 10%;
+    border-bottom-right-radius: 10%;
+}
+.divContainer img{
+    -webkit-box-shadow: 0px 0px 12px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 12px 0px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 12px 0px rgba(0,0,0,0.75);
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 2%;
+    border-bottom-left-radius: 10%;
+    border-bottom-right-radius: 10%;
+}
+.boton{
+    display: flex;
+    justify-content: flex-end;
+    border-radius: 20%;
+}
+.boton button{
+    box-shadow: none;
+    margin: 2%;
+    border-radius: 15%;
+    border-color: #526E2DFF;
+    background-color: #526E2DFF;
+}
+.boton button:hover{
+    transition: 0.5s;
+    border-color: #FB6467FF;
+    background-color: #FB6467FF;
+    color: #526E2DFF;
+    color: white;
+}
+.divContainer h2{
+    font-family: sch;
+    background: linear-gradient(rgb(30, 0, 255), rgb(2, 109, 15));
+    width: 100%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.info{
+    display: flex;
+}

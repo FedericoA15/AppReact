@@ -1,0 +1,19 @@
+.prueba{
+    width: auto;
+    display: flex;
+    justify-content: flex-end;
+}
+.prueba div{
+    -webkit-box-shadow: 0px 0px 12px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 12px 0px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 12px 0px rgba(0,0,0,0.75);
+    background-color: rgba(28, 7, 255, 0.808);
+    padding: 0.5%;
+}
+.prueba button{
+    color: white;
+    background-color: rgb(0, 110, 255);
+    border-color: rgb(0, 110, 255);
+    border-radius: 2%;
+    margin-left: 10px;
+}
