@@ -4,12 +4,6 @@ import Nav from "./components/Nav.jsx"
 import React from 'react';
 
 function App () {
-  const example = {
-    name: 'Morty Smith',
-    species: 'Human',
-    gender: 'Male',
-    image: 'https://rickandmortyapi.com/api/character/avatar/2.jpeg',
- };
   const [characters, setCharacters] = React.useState([]);
   function onSearch(character) {
    fetch(`https://rickandmortyapi.com/api/character/${character}`)
@@ -22,16 +16,14 @@ function App () {
          }
       });
 }
-const onClose = (id) =>{
-  setCharacters(characters.filter((char) => char.id !== id))
+const onClose = (name) =>{
+  setCharacters(characters.filter((char) => char.name !== name))
 }
   
   return (
     <div className='App' style={{ padding: '25px' }}>
       <div>
         <Nav onSearch={onSearch}/>
-      </div>
-      <div style={{display : "flex", justifyContent: "center"}}>
       </div>
       <div>
         <Cards characters={characters} onClose={onClose}/>

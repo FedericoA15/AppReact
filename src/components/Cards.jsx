@@ -1,8 +1,7 @@
 import Card from './Card';
 import styles from "./Styles/Cards.module.css"
 
-export default function Cards(props) {
-   const { characters } = props;
+export default function Cards({characters,onClose}) {
    return <div className={styles.divContain}> 
       {
       characters.map(character=> 
@@ -10,9 +9,10 @@ export default function Cards(props) {
          name={character.name} 
          species={character.species}
          gender={character.gender}
+         onClose={onClose}
          image={character.image}
          key={character.name}
-         onClose={character.onClose}
+         id={character.id}
       />)
       }
    </div>;
