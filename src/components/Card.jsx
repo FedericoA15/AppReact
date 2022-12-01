@@ -1,4 +1,4 @@
-import styles from "./Card.module.css"
+import styles from "./Styles/Card.module.css"
 export default function Card(props) {
    return (
       <div className={styles.divContainer}>
