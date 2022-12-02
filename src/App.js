@@ -2,6 +2,7 @@ import './App.css'
 import Cards from './components/Cards.jsx'
 import Nav from "./components/Nav.jsx"
 import React from 'react';
+import { Routes, Route} from "react-router-dom"
 
 function App () {
   const [characters, setCharacters] = React.useState([]);
