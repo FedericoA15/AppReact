@@ -1,36 +1,52 @@
-import './App.css'
-import Cards from './components/Cards.jsx'
-import Nav from "./components/Nav.jsx"
-import React from 'react';
-import { Routes, Route} from "react-router-dom"
+import "./App.css";
+import Cards from "./components/Cards.jsx";
+import Nav from "./components/Nav.jsx";
+import React from "react";
+import About from "./components/About.jsx";
+import Detail from "./components/Detail.jsx";
+import { Routes, Route } from "react-router-dom";
 
-function App () {
+function App() {
   const [characters, setCharacters] = React.useState([]);
   function onSearch(character) {
-   fetch(`https://rickandmortyapi.com/api/character/${character}`)
+    fetch(`https://rickandmortyapi.com/api/character/${character}`)
       .then((response) => response.json())
       .then((data) => {
-         if (data.name) {
+        if (data.name) {
+          if (!isRepetida(data.name)) {
             setCharacters((oldChars) => [...oldChars, data]);
-         } else {
-            window.alert('No hay personajes con ese ID');
-         }
+          } else {
+            window.alert("No podes repetir");
+          }
+        } else {
+          window.alert("No hay nadie con ese Id");
+        }
       });
-}
-const onClose = (name) =>{
-  setCharacters(characters.filter((char) => char.name !== name))
-}
-  
+  }
+  const isRepetida = (name) => {
+    let aux = false;
+    characters.forEach((char) => {
+      if (char.name === name) aux = true;
+    });
+    return aux;
+  };  
+  const onClose = (name) => {
+    setCharacters(characters.filter((char) => char.name !== name));
+  };
+
   return (
-    <div className='App' style={{ padding: '25px' }}>
-      <div>
-        <Nav onSearch={onSearch}/>
-      </div>
-      <div>
-        <Cards characters={characters} onClose={onClose}/>
-      </div>
+    <div className="App">
+      <Nav onSearch={onSearch} />
+      <Routes>
+        <Route
+          path="/"
+          element={<Cards characters={characters} onClose={onClose} />}
+        />
+        <Route path="/about" element={<About></About>} />
+        <Route path="/detail/:detailId" element={<Detail />} />
+      </Routes>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
