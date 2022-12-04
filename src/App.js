@@ -29,7 +29,7 @@ function App() {
       if (char.name === name) aux = true;
     });
     return aux;
-  };  
+  };
   const onClose = (name) => {
     setCharacters(characters.filter((char) => char.name !== name));
   };
@@ -39,10 +39,10 @@ function App() {
       <Nav onSearch={onSearch} />
       <Routes>
         <Route
-          path="/"
-          element={<Cards characters={characters} onClose={onClose} />}
+          path="/home"
+          element={<Cards characters={characters} onClose={onClose}  />}
         />
-        <Route path="/about" element={<About></About>} />
+        <Route path="/about" element={<About />} />
         <Route path="/detail/:detailId" element={<Detail />} />
       </Routes>
     </div>
