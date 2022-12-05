@@ -1,6 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import styles from "./Styles/Detail.module.css";
 export default function Detail() {
   const { detailId } = useParams(); // para que el use Params ande la variable declarada debe tener el mismo nombre que se le pone en el route en la parte del path
   const [characters, setcharacters] = useState({});
@@ -16,13 +17,13 @@ export default function Detail() {
     return setcharacters({});
   }, [detailId]);
   return (
-    <div>
+    <div className={styles.container}>
+      <img src={characters.image} alt={characters.name} />
       <h2>{characters.name}</h2>
       <h2>{characters.status}</h2>
       <h2>{characters.species}</h2>
       <h2>{characters.gender}</h2>
       <h2>{characters.origin?.name}</h2>
-      <img src={characters.image} alt="" />
     </div>
   );
 }

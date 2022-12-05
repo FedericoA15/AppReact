@@ -1,13 +1,35 @@
 import "./App.css";
 import Cards from "./components/Cards.jsx";
 import Nav from "./components/Nav.jsx";
-import React from "react";
+import React, { useState, useEffect } from "react";
 import About from "./components/About.jsx";
 import Detail from "./components/Detail.jsx";
-import { Routes, Route } from "react-router-dom";
+import Form from "./components/Form.jsx";
+import { Routes, Route, useLocation, useNavigate } from "react-router-dom";
 
 function App() {
-  const [characters, setCharacters] = React.useState([]);
+  const [characters, setCharacters] = useState([]);
+
+  const [access, setAcces] = useState(false);
+
+  const username = "federico@gmail.com";
+
+  const password = "1234567";
+
+  const navigate = useNavigate();
+
+  const Location = useLocation();
+  
+  useEffect(() => {
+    !access && navigate('/');
+ }, [access]);
+
+  const Login = (userData) => {
+    if (userData.username === username && userData.password === password) {
+      setAcces(true);
+      navigate("/home");
+    }
+  };
   function onSearch(character) {
     fetch(`https://rickandmortyapi.com/api/character/${character}`)
       .then((response) => response.json())
@@ -23,6 +45,7 @@ function App() {
         }
       });
   }
+
   const isRepetida = (name) => {
     let aux = false;
     characters.forEach((char) => {
@@ -30,17 +53,19 @@ function App() {
     });
     return aux;
   };
+
   const onClose = (name) => {
     setCharacters(characters.filter((char) => char.name !== name));
   };
 
   return (
     <div className="App">
-      <Nav onSearch={onSearch} />
+      {Location.pathname === "/" ? null : <Nav onSearch={onSearch} />}
       <Routes>
+        <Route path="/" element={<Form Login={Login} />} />
         <Route
           path="/home"
-          element={<Cards characters={characters} onClose={onClose}  />}
+          element={<Cards characters={characters} onClose={onClose} />}
         />
         <Route path="/about" element={<About />} />
         <Route path="/detail/:detailId" element={<Detail />} />
