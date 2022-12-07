@@ -12,9 +12,9 @@ function App() {
 
   const [access, setAcces] = useState(false);
 
-  const username = "federico@gmail.com";
+  const username = "ejemplo@gmail.com";
 
-  const password = "1234567";
+  const password = "1password";
 
   const navigate = useNavigate();
 
