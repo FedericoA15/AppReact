@@ -16,6 +16,9 @@ export default function Nav(props) {
         <NavLink className={styles.bn32} to={"/about"}>
           About
         </NavLink>
+        <NavLink className={styles.bn32} to={"/favorites"}>
+          Favorities
+        </NavLink>
         <a className={styles.bn32} onClick={goToHome}>
           Back
         </a>

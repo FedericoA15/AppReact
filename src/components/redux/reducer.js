@@ -3,22 +3,22 @@ const initialState = {
     myFavorites: [],
 }
 
-const reducer = (state=initialState,action)=>{
-    switch (action.type) {
+const reducer = (state=initialState,{type,payload})=>{
+    switch (type) {
         case ADD_FAVORITIES:
-            const upFavorities = [...state.myFavorites, action.payload]
+            const upFavorities = [...state.myFavorites, payload]
             return{
                 ...state,
                 myFavorites: upFavorities,
             }
         case DELETE_FAVORITIES:
-            const filterFav = state.myFavorites.filter(char=>char.id!==action.payload)
+            const filterFav = state.myFavorites.filter(char=>char.id !== payload)
             return{
                 ...state,
                 myFavorites: filterFav
             }
         default:
-            return state
+            return {...state}
     }
 }
 export default reducer
