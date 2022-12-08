@@ -23,6 +23,7 @@
   border-bottom-right-radius: 10%;
 }
 .divContainer h2 {
+  text-shadow: 1px 1px 2px rgb(255, 238, 0), 0 0 1em rgb(38, 0, 255), 0 0 0.2em rgb(255, 255, 0);
   background: radial-gradient(
     circle,
     rgb(225, 255, 0) 0%,
@@ -31,13 +32,14 @@
   width: 100%;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  font-size: 30px;
 }
 .info {
   display: flex;
 }
 .buttonContainer {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
   padding: 1%;
 }
 .bn5 {
@@ -111,4 +113,14 @@
   left: 0;
   top: 0;
   border-radius: 10px;
+}
+.divButtonFav button{
+  background-color: rgb(198, 75, 75);
+  color: none;
+  border-radius: 20%;
+  border: none;
+}
+.divButtonFav button:hover{
+  background-color: rgb(255, 0, 0);
+  transition: 1s;
 }

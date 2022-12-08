@@ -15,14 +15,13 @@ function Card({
   myFavorites,
   onClose,
 }) {
-  
   const handleFavorite = () => {
     if (isFav) {
       setIsFav(false);
       deletefavorities(id);
     } else {
       setIsFav(true);
-      addfavorities(id);
+      addfavorities({ name, id, image });
     }
   };
   useEffect(() => {
@@ -37,14 +36,14 @@ function Card({
   return (
     <div className={styles.divContainer}>
       <div>
-        {isFav ? (
-          <button onClick={handleFavorite}>❤️</button>
-        ) : (
-          <button onClick={handleFavorite}>🤍</button>
-        )}
-      </div>
-      <div>
         <div className={styles.buttonContainer}>
+          <div className={styles.divButtonFav}>
+            {isFav ? (
+              <button onClick={handleFavorite}>❤️</button>
+            ) : (
+              <button onClick={handleFavorite}>🤍</button>
+            )}
+          </div>
           <button className={styles.bn5} onClick={onClose}>
             X
           </button>
@@ -64,8 +63,8 @@ function Card({
 
 export function mapDispatchToProps(dispatch) {
   return {
-    addfavorities: (name,id,image) => {
-      dispatch(addfavorities(name,id,image));
+    addfavorities: (name, id, image) => {
+      dispatch(addfavorities(name, id, image));
     },
     deletefavorities: (id) => {
       dispatch(deletefavorities(id));
@@ -75,7 +74,7 @@ export function mapDispatchToProps(dispatch) {
 export function mapStateToProps(state) {
   return {
     myFavorites: state.myFavorites,
-  }
+  };
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Card);
