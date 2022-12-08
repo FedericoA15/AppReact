@@ -12,10 +12,10 @@ export function deletefavorities (id){
         payload: id,
     }
 }
-export function filterCards(status){
+export function filterCards(gender){
     return{
         type: FILTER,
-        payload: status,
+        payload: gender,
     }
 }
 export function orderCards(id){

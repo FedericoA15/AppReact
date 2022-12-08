@@ -20,16 +20,16 @@ const reducer = (state=initialState,{type,payload})=>{
                 myFavorites: filterFav
             }
         case FILTER:
-            const filterChar = state.allCharacters.filter(char=>char.status === payload)
+            const filterChar = payload === "All" ? state.allCharacters : state.allCharacters.filter(char=>char.gender === payload)
             return{
                 ...state,
                 myFavorites: filterChar
             }
         case ORDER:
             const sorted = state.allCharacters
-            if( payload === "Ascendiente"){
+            if( payload === "Ascendente"){
                 sorted.sort((a,b)=>a.id-b.id)
-            }else{
+            }if( payload === "Descendente"){
                 sorted.sort((a,b)=>b.id-a.id)
             }
             return{

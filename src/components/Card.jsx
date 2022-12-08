@@ -21,7 +21,7 @@ function Card({
       deletefavorities(id);
     } else {
       setIsFav(true);
-      addfavorities({ name, id, image });
+      addfavorities({ name, id, image, gender });
     }
   };
   useEffect(() => {
