@@ -4,27 +4,23 @@ import { filterCards, orderCards } from "./redux/actions";
 export function Favorities({ myFavorites }) {
   const dispatch = useDispatch();
 
-  function handleFilter(e) {
-    dispatch(filterCards(e.target.value));
-  }
   function handleOrder(e){
     dispatch(orderCards(e.target.value))
+  }
+  function handleFilter(e) {
+    dispatch(filterCards(e.target.value));
   }
   return (
     <div className={styles.divContainer}>
       <div>
-        <select
-          name="order"
-          id=""
-          onChange={handleOrder}
-        >
+        <select name="order" onClick={handleOrder}>
           <option value="default" disabled>
             Select...
           </option>
           <option value="Ascendente">Ascendente</option>
           <option value="Descendente">Descendente</option>
         </select>
-        <select name="gender" id="" onChange={handleFilter}>
+        <select name="gender" onClick={handleFilter}>
           <option value="default" disabled>
             Select...
           </option>
