@@ -28,25 +28,29 @@ export default function Form(props) {
     props.Login(userData);
   }
   return (
-    <div>
+    <div className={styles.divContain}>
       <form onSubmit={handleSubmit}>
       <label htmlFor="username"></label>
       <input
+        placeholder="Email..."
         type="text"
         name="username"
         value={userData.username}
         onChange={handleInputChange}
+        className={styles.input}
       />
-      <p>{errors.username}</p>
+      <p className={styles.error}>{errors.username}</p>
       <label htmlFor="password"></label>
       <input
+      placeholder="Password..."
         type="password"
         name="password"
         value={userData.password}
         onChange={handleInputChange}
+        className={styles.input}
       />
       <p>{errors.password}</p>
-      <button type="submit">Iniciar</button>
+      <button className={styles.bn5} type="submit">Iniciar</button>
       </form>
     </div>
   );

@@ -37,4 +37,12 @@
     width: 100%;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-  }
+}
+.divoptions{
+  display: flex;
+  justify-content: center;
+}
+.options{
+  width: 10%;
+  margin: 50px;
+}
