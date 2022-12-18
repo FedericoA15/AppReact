@@ -1,5 +1,6 @@
 .divContainer {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 25px;
     border-radius: 50px;
     background: rgba(35,31,87,255);
     box-shadow: -41px 41px 82px black, 41px -41px 82px rgba(35,31,87,255);
