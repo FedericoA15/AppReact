@@ -24,7 +24,7 @@ export default function SearchBar(props) {
   return (
     <div className={styles.bar}>
       <div>
-        <input placeholder="Pon un id aqui..." type="search" onClick={handleChange} />
+        <input placeholder="Pon un id aqui..." type="search" onChange={handleChange} />
         <button className={styles.bn5} onClick={() => props.onSearch(id)}>Agregar</button>
         <button className={styles.bn5} onClick={numAleatorio}>Aleatorio 🎲</button>
       </div>
